@@ -10,6 +10,8 @@ public class MemberRegisterService {
 	}
 
 	public Long regist(RegisterRequest req) {
+		System.out.println("MemberRegisterService#regist() 메소드 실행");
+
 		Member member = memberDao.selectByEmail(req.getEmail());
 		if (member != null) {
 			throw new DuplicateMemberException("dup email " + req.getEmail());
